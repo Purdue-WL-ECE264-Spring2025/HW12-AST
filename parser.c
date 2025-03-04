@@ -51,7 +51,7 @@ struct AST_node *parse_factor(struct stream *s) {
     return expr;
   } else if (peek(s).type == TOK_LITERAL) {
     struct token next_tok = next(s);
-    char int_buf[8];
+    char int_buf[8] = {0};
     strncpy(int_buf, next_tok.start, next_tok.length);
     return make_lit(atoi(int_buf));
   } else if (peek(s).type == TOK_UNOP) {
